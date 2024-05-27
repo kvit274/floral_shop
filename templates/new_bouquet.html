@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <section id="login">
+        <form action="" method="POST" novalidate enctype=multipart/form-data>
+            <section id="title">
+                <h1>Create new bouquet</h1>
+            </section>
+            {{ form.hidden_tag() }}
+
+            <section>
+                <h1>{{ form.name.label }}</h1>
+                <p>{{ form.name() }}</p>
+                {% for error in form.name.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+            <section>
+                <h1>Image: </h1>
+                <p><input type=file name=file></p>
+            </section>
+
+            <section>
+                <h1>{{ form.flowers.label }}</h1>
+                <p>{{ form.flowers(size = choices, multiple=True) }}</p>
+                {% for error in form.flowers.errors %}
+                    {{ error }}
+                {% endfor %}
+                <p>Press <b>control</b> to select multiple flowers or <b>command</b> for Mac users</p>
+            </section>
+
+            <section>
+                <h1>{{ form.price.label }}</h1>
+                <p>{{ form.price() }}</p>
+                {% for error in form.price.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+            <section>
+                <h1>{{ form.quantity.label }}</h1>
+                <p>{{ form.quantity() }}</p>
+            </section>
+        
+            {{ form.submit() }}
+            <p>{{ message }}</p>
+            <p><a href="{{ url_for('floral_shop', floral_id = floral_id) }}">Return to the shop</a></p>
+
+        </form>
+    </section>
+
+
+    
+
+
+
+
+{% endblock %}

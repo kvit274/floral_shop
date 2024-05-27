@@ -1,0 +1,29 @@
+<!DOCTYPE html>                 
+    <html lang="en">
+
+        <head>
+            <meta charset="utf-8" />
+            <title>Blooming Universe</title>
+            <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+        </head>
+
+        <body>
+            <header>
+                <h1><a href="{{ url_for('index') }}">Blooming Universe</a></h1>
+                
+                {% if g.user %}
+                    <p>Hi, {{ g.user }}</p>
+                    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+                    <p><a href="{{ url_for('register_shop') }}">Register new shop</a></p>
+                    <p><a href="{{ url_for('cart') }}">Your cart</a></p>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login</a></p>
+                    <p><a href="{{ url_for('registration') }}">Register</a></p>
+                {% endif %}
+            </header>
+
+            {% block main_content %}    
+            {% endblock %}
+        </body>
+
+    </html>

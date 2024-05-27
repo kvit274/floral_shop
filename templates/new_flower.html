@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <section id="login">
+        <form action="" method="POST" novalidate enctype=multipart/form-data>
+            <section id="title">
+                <h1>Add new flower</h1>
+            </section>
+            {{ form.hidden_tag() }}
+
+            <section>
+                <h1>{{ form.name.label }}</h1>
+                <p>{{ form.name() }}</p>
+                {% for error in form.name.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+            <section>
+                <h1>Image: </h1>
+                <p><input type=file name=file></p>
+            </section>
+
+            {{ form.submit() }}
+            <p>{{ message }}</p>
+            <p><a href="{{ url_for('add_flowers', floral_id = floral_shop['floral_id']) }}">Go Back</a></p>
+
+        </form>
+    </section>
+
+
+    
+
+
+
+
+{% endblock %}

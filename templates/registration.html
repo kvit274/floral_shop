@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <section id="login">
+        <form action="" method="POST" novalidate>
+            <section id="title">
+                <h1>Register</h1>
+            </section>
+            {{ form.hidden_tag() }}
+            <section>
+                <h1>{{ form.user_id.label }}</h1>
+                <p>{{ form.user_id() }}</p>
+                {% for error in form.user_id.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+            <section>
+                <h1>{{ form.password.label }}</h1>
+                <p>{{ form.password() }}</p>
+                {% for error in form.password.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+            <section>
+                <h1>{{ form.password2.label }}</h1>
+                <p>{{ form.password2() }}</p>
+                {% for error in form.password2.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+            <section>
+                <h1>{{ form.owner.label }}</h1>
+                <p>{{ form.owner(checked = True) }}</p>
+            </section>
+
+            {{ form.submit() }}
+
+        </form>
+    </section>
+
+
+
+
+{% endblock %}

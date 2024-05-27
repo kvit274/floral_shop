@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <section id="login">
+        <form action="" method="POST" novalidate enctype=multipart/form-data>
+            <section id="title">
+                <h1>Create new shop</h1>
+            </section>
+            {{ form.hidden_tag() }}
+            <section>
+                <h1>{{ form.name.label }}</h1>
+                <p>{{ form.name() }}</p>
+                {% for error in form.name.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+            
+
+            <section>
+                <h1>{{ form.address.label }}</h1>
+                <p>{{ form.address() }}</p>
+                {% for error in form.address.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+
+            <section>
+                <h1>{{ form.open_time.label }}</h1>
+                <p>{{ form.open_time() }}</p>
+                {% for error in form.open_time.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+
+            <section>
+                <h1>{{ form.close_time.label }}</h1>
+                <p>{{ form.close_time() }}</p>
+                {% for error in form.close_time.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+
+
+            <section>
+                <h1>Choose image:</h1>
+                <p><input type=file name=file></p>
+            </section>
+            
+        
+
+            {{ form.submit() }}
+
+        </form>
+    </section>
+    
+
+
+
+
+{% endblock %}

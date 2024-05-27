@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+
+<section id="floral">
+    <figure>
+        <img src="{{ url_for('static', filename = floral_shop['picture_name']) }}"/>
+    </figure>
+    <section>
+        <h1>{{ floral_shop["name"] }}</h1>
+        <h2 id="income">{{ income }}</h2>
+    </section>
+    <p>Address: {{ floral_shop["address"] }}</p>
+    <p>Opens at: {{ floral_shop["open_time"] }}</p>
+    <p>Closes at: {{ floral_shop["close_time"] }}</p>
+    <p>{{ floral_shop["description"] }}</p>
+</section>
+
+    
+{% if flowers %}
+    <h1 id="index">Flowers</h1>
+    <section id="flowers">
+        {% for flower in flowers %}
+            <section id="flower">
+                <img src="{{ url_for('static', filename = flower['picture_name']) }}"/>
+                <h2>{{ flower["name"] }}</h2>
+                <p>Price: {{ flower["price"] }}€</p>
+                <p>In stock: {{ flower["quantity"] }}</p>
+                <p><a href="{{ url_for('add_to_cart', floral_id = floral_shop['floral_id'], name = flower['name'], price = flower['price']) }}">Add to cart</a></p>
+                <p><a href="{{ url_for('delete_flower', floral_id = floral_shop['floral_id'], name = flower['name']) }}">{{ delete_flower }}</a></p>
+            </section>
+        {% endfor %}
+    </section>  
+{% endif %}
+
+{% if bouquets %}
+    <h1 id="index">Special offers</h1>
+    <section id="flowers">
+        {% for bouquet in bouquets %}
+            <section id="flower">
+                <img src="{{ url_for('static', filename = bouquet['picture_name']) }}"/>
+                <h2>{{ bouquet["name"] }}</h2>
+                <p>Price: {{ bouquet["price"]}}€</p>
+                <p>In stock: {{ bouquet["quantity"] }}</p>
+                <p><a href="{{ url_for('bouquet', floral_id = floral_shop['floral_id'], name = bouquet['name']) }}">See details</a></p>
+                <p><a href="{{ url_for('delete_bouquet', floral_id = floral_shop['floral_id'], name = bouquet['name']) }}">{{ delete_flower }}</a></p>
+            </section>
+        {% endfor %}
+    </section>  
+{% endif %}
+
+
+<section class="admin">
+    <p id="admin"><a href="{{ url_for('modify_shop', floral_id = floral_shop['floral_id']) }}">{{ modify_shop }}</a></p>
+    <p id="admin"><a href="{{ url_for('add_flowers', floral_id = floral_shop['floral_id']) }}">{{ add_flowers }}</a></p>
+    <p id="admin"><a href="{{ url_for('new_bouquet', floral_id = floral_shop['floral_id'])}}">{{ new_bouquet }}</a></p>
+
+</section>
+
+
+
+{% endblock %}

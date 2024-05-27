@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <section id="bouquet">
+        <img src="{{ url_for('static', filename = bouquet['picture_name']) }}"/>
+        <h2>{{ bouquet["name"] }}</h2>
+        <p>This bouquet has: {{ bouquet["flowers"] }}</p>
+        <p>Price: {{ bouquet["price"] }}€</p>
+        <p>In stock: {{ bouquet["quantity"] }}</p>
+        {% if own %}
+            <form action="" method="POST" novalidate>
+                {{ form.hidden_tag() }}
+            <section>
+                <h1>{{ form.quantity.label }}</h1>
+                <p>{{ form.quantity() }}</p>
+                {% for error in form.quantity.errors %}
+                    {{ error }}
+                {% endfor %}
+            </section>
+
+            {{ form.submit() }}
+            </form>
+        {% endif %}
+        <p><a href="{{ url_for('add_to_cart', floral_id = bouquet['floral_id'], name = bouquet['name'], price = bouquet['price']) }}">Add to cart</a></p>
+        <p><a href="{{ url_for('floral_shop', floral_id = bouquet['floral_id']) }}">Return to the shop</a></p>  
+
+    </section>
+        
+
+{% endblock %}

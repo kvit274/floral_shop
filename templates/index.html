@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1 id="index">Our shops</h1>
+    
+    {% if floral_shops %}
+        <section id="shops">
+        {% for floral in floral_shops %}
+
+            <section id="shop">
+                <img src="{{ url_for('static', filename = floral['picture_name']) }}"/>
+                <h2>{{ floral["name"] }}</h2>
+                <p>Address: {{ floral["address"] }}</p>
+                <p>Opens at: {{ floral["open_time"] }}</p>
+                <p>Closes at: {{ floral["close_time"] }}</p>
+                <p><a href="{{ url_for('floral_shop', floral_id = floral['floral_id']) }}">See Products</a></p>
+            </section>
+
+        {% endfor %}
+        </section>
+    {% else %}
+    <p>There are no stores available at the moment</p>
+    {% endif %}
+    
+    {% if random_bouquets %}
+        <h1 id="index">See bouquets</h1>
+        <section id="flowers">
+            {% for bouquet in random_bouquets %}
+                <section id="flower">
+                    <img src="{{ url_for('static', filename = bouquet['picture_name']) }}"/>
+                    <h2>{{ bouquet["name"] }}</h2>
+                    <p>Price: {{ bouquet["price"]}}€</p>
+                    <p>In stock: {{ bouquet["quantity"] }}</p>
+                    <p><a href="{{ url_for('floral_shop', floral_id = bouquet['floral_id']) }}">See More</a></p>
+                </section>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+    {% if flowers %}
+        <h1 id="index">Our flowers</h1>
+        <section id="flowers">
+            {% for flower in flowers %}
+                <section id="flower">
+                    <img src="{{ url_for('static', filename = flower['picture_name']) }}"/>
+                    <h2>{{ flower["name"] }}</h2>
+                    <p>In stock: {{ flower["quantity"] }}</p>
+                    <p>Price: {{ flower["price"] }}€</p>
+                    <p><a href="{{ url_for('floral_shop', floral_id = flower['floral_id']) }}">See More</a></p>
+                </section>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+{% endblock %}

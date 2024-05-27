@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <h1>Your cart</h1>
+    
+    {% if cart %}
+            {% for floral_shop in cart %}
+
+                <table>
+                    <caption>{{ floral_shop["floral_name"] }}</caption>
+                    {% for flower in floral_shop["flowers"] %}
+                        <tr>
+                            <td>Product: {{ flower["name"] }}</td>
+                            <td >Quantity: {{ flower["quantity"] }}</td>
+                            <td>Price: {{ flower["price"] }}€</td>
+                            <td><a href="{{ url_for('delete_from_cart', floral_name = floral_shop['floral_name'], name = flower['name']) }}">Delete</a> </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                
+
+            {% endfor %}
+        <p>Amount to pay: {{ overall_price }}€</p>
+        <form action="" method="POST" novalidate>
+            <input  type="submit" value="Buy"/>
+        </form>
+
+    {% elif purchased  %}
+        <p>{{ message }}</p>
+    {% else  %}
+        <p>Your cart is empty</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('index') }}">Go shopping</a></p>
+{% endblock %}
+
+
+

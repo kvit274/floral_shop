@@ -1,0 +1,266 @@
+:root {
+    font-size: 100%;
+    --main-font-family: 'Ariel'; 
+    --main-bg-color: black;
+    --nav-text-color: white;
+    --nav-bg-color: black;
+    --login-bg-color: rgb(239, 214, 204);
+    --index-bg-color: rgb(239, 214, 204);
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: var(--nav-text-color);
+
+}
+
+header p{
+    margin: auto;
+}
+
+header h1{
+    
+    margin: 0.5em 0.5em 0.5em 0.5em; 
+
+}
+
+header a{
+    text-decoration: none;
+}
+
+header a:link { 
+    color: var(--nav-text-color);
+}
+            
+header a:visited {
+    color: var(--nav-text-color);
+}
+            
+header a:hover {
+    color: var(--nav-text-color);
+}
+            
+header a:active {
+    color: var(--nav-text-color);
+}
+
+
+html {
+    background-color: rgb(233, 158, 133);
+    background-size: cover;
+
+
+}
+
+
+#login section{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+    
+}
+
+#login section h1{
+    margin-right: 1em;
+}
+
+#login form{
+    margin: 10em 20em;
+    padding: 2em;
+    text-align: center;
+    background-color:var(--login-bg-color);
+
+}
+
+#shops{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+
+}
+
+#index {
+    text-align: center;
+    background-color: var(--index-bg-color);
+    padding: 0.5em 0em;
+    font-size: 3em;
+}
+
+#flower h1, #flower h2{
+    margin-left: 0.6em;
+}
+
+#shop{
+    width: 32%;
+    background-color: var(--index-bg-color);
+    
+        
+}
+
+#shop:hover{
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.95);
+
+}
+
+#shop p{
+    padding-left: 1em;
+}
+
+
+
+#shop img{
+    width: 100%;
+    text-align: center;
+}
+
+#floral img{
+    overflow: hidden;
+    width: 100%;
+    
+}
+
+#floral figure{
+    width: 100%;
+    height: 20em;
+    margin:0;
+    overflow: hidden;
+}
+
+#floral p{
+    display: block;
+}
+
+#floral section h1, #floral section h2{
+    display:inline;
+    font-size: 2em;
+}
+
+
+
+#income{
+    margin-left: 30em;
+}
+
+
+#flowers{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 2em;
+
+}
+
+#flower{
+    width: 24%;
+    background-color: var(--index-bg-color);
+        
+}
+
+#flower:hover{
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.95);
+}
+
+#flower p, #shop h2{
+    padding-left: 1em;
+}
+
+
+
+#flower img{
+    width: 100%;
+    text-align: center;
+    height: 30em;
+}
+
+
+#floral{
+    background-color: var(--index-bg-color);
+}
+
+
+#admin{
+    display: inline;
+    color: var(--nav-text-color);
+    background-color: var(--nav-bg-color);
+    padding: 1em;
+    
+    text-align: right;
+}
+
+.admin{
+    text-align: right;
+    margin-bottom: 1em;
+}
+
+
+#admin a{
+    text-decoration: none;
+}
+
+#admin a:link { 
+    color: var(--nav-text-color);
+}
+            
+#admin a:visited {
+    color: var(--nav-text-color);
+}
+            
+#admin a:hover {
+    color: var(--nav-text-color);
+}
+            
+#admin a:active {
+    color: var(--nav-text-color);
+}
+
+
+caption{
+    font-size: 2em;
+    background-color: var(--index-bg-color);
+}
+
+td{
+    padding: 1em 5em 1em 5em;
+    border: 1px solid black;
+}
+
+
+table{
+    background-color: var(--index-bg-color);
+}
+
+#bouquet{
+    width: 24%;
+    background-color: var(--index-bg-color);
+    margin:  1em auto;
+    padding: 1em 3em;
+        
+}
+
+#bouquet p, #shop h2{
+    padding-left: 1em;
+}
+
+
+
+#bouquet img{
+    width: 100%;
+    text-align: center;
+    height: 30em;
+}
+
+#title h1{
+    font-size: 2em;
+    background-color: rgba(206, 162, 147, 0.746);
+    border: 1px solid black;
+    padding: 1em;
+}

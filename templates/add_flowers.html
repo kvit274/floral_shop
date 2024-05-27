@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <section id="login">    
+        <form action="" method="POST" novalidate>
+            <section id="title">
+                <h1>Add flowers to stock</h1>
+            </section>
+            {{ form.hidden_tag() }}
+            <section>
+                <h1>{{ form.name.label }}</h1>
+                <p>{{ form.name() }}</p>
+            </section>
+
+            <section>
+                <h1>{{ form.price.label }}</h1>
+                <p>{{ form.price() }}</p>
+            </section>
+
+            <section>
+                <h1>{{ form.quantity.label }}</h1>
+                <p>{{ form.quantity() }}</p>
+            </section>
+
+            {{ form.submit() }}
+
+            <p>Not in there?<a href="{{ url_for('new_flower', floral_id = floral_shop['floral_id']) }}">Add new flower</a></p>
+            <p>{{ message }}</p>
+            <p><a href="{{ url_for('floral_shop', floral_id = floral_shop['floral_id']) }}">Return to the shop</a></p>  
+        </form>
+
+    
+
+
+
+
+{% endblock %}
